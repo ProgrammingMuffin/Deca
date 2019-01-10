@@ -18,5 +18,16 @@ int ReadInput(std::string input, std::string &value)
             value.push_back(input[i]);
             i++;
         }
+        return 0;
     }
+    else                                //It is a message, not a command.
+    {
+        value = input;
+        return 1;
+    }
+}
+
+void HandleCommand()
+{
+    //do something related to command handling
 }
