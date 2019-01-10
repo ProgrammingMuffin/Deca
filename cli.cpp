@@ -27,7 +27,37 @@ int ReadInput(std::string input, std::string &value)
     }
 }
 
-void HandleCommand()
+void HandleCommand(std::string cmd)
 {
     //do something related to command handling
+    std::string command;
+    std::string param;
+    bool isParam = false;       //Parameters exist or not
+    int i = 0;
+    while(i < (int)cmd.length() && cmd[i]!=' ')
+    {
+        command.push_back(cmd[i]);
+        i++;
+    }
+    i++;
+    if(i < (int)cmd.length())
+    {
+        isParam = true;
+    }
+    if(isParam == true)
+    {
+        while(i < (int)cmd.length())
+        {
+            param.push_back(cmd[i]);
+            i++;
+        }
+    }
+    if(command == "login")
+    {
+        std::cout<<"command is: "<<command;
+        if(isParam == true)
+        {
+            std::cout<<" and param is: "<<cmd<<std::endl;
+        }
+    }
 }
